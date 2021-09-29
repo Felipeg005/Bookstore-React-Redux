@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav-menu {
+  padding: 50px 0;
+  margin: -20px 0 0 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+}
+
+.menu-container {
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.menu-li {
+  margin: 2.2px 40px 0 40px;
+  color: rgb(95, 95, 95);
+}
+
+.logo {
+  color: rgb(0, 132, 255);
+  margin: 0 0 0 40px;
+  font-size: 35px;
+}
+
+.list-container {
+  border: 1px solid black;
+  width: 80vw;
+  margin-left: 10%;
+  height: 50vh;
+  overflow-y: scroll;
+}
+
+.list-elements {
+  margin: 0;
+  padding: 0;
+}
+
+.form {
+  margin-left: 40%;
+}
+
+.form-title {
+  text-align: center;
+}
+
+.book-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(196, 209, 233);
+}
+
+.delete-button {
+  margin-left: auto;
+}
