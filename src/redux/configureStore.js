@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import createLogger from 'redux-logger';
 
-const loggerMiddleware = createLogger(); // initialize logger
+const loggerMiddleware = createLogger();
 
-const createStoreWithMiddleware = applyMiddleware(loggerMiddleware)(createStore); // apply logger to redux
+const createStoreWithMiddleware = applyMiddleware(loggerMiddleware)(createStore);
 
 const reducer = combineReducers({
 });
