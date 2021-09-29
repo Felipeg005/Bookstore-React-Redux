@@ -7,10 +7,10 @@ class Nav extends React.Component {
       <nav className={this.props.class}>
         <h1 className="logo">BookStore</h1>
         <ul className='menu-container'>
-          <Link to="/">
+          <Link to="/Bookstore-React-Redux/">
             <li className="menu-li">Home</li>
           </Link>
-          <Link to="/categories">
+          <Link to="/Bookstore-React-Redux/categories">
             <li className="menu-li">Categories</li>
           </Link>
         </ul>
