@@ -9,8 +9,8 @@ function App() {
     <Router>
       < Nav class='nav-menu'/>
       <Switch>
-        <Route path="/" exact component={Home}></Route>
-        <Route path="/categories" component={CategoriesPage}></Route>
+        <Route path="/Bookstore-React-Redux/" exact component={Home}></Route>
+        <Route path="/Bookstore-React-Redux/categories" component={CategoriesPage}></Route>
       </Switch>
     </Router>
   );
