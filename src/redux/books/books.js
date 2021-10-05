@@ -7,9 +7,27 @@ const initialState = [];
 // Reducer
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_BOOK:
-      return {
+    case ADD_BOOK: {
+      const storageState = () => {
+        if (JSON.parse(localStorage.getItem('bookStorage'))) {
+          state = JSON.parse(localStorage.getItem('bookStorage'));
+          localStorage.setItem('bookStorage', JSON.stringify(state));
+        }
+        return state;
       };
+      storageState();
+      const newState = [...state, action.payload];
+      localStorage.setItem('bookStorage', JSON.stringify(newState));
+      return (
+        newState
+      );
+    }
+    /*
+    return a new state object in which the books array will contain a new book object,
+    passed by action.payload.
+    Remember -  you MUSN'T mutate the state. You have to return a new state object - i.e.:
+    return [ ...state, action.payload];
+    */
     case REMOVE_BOOK:
       /*
       use ES6 filter() method to create a new array, which will not contain the book you

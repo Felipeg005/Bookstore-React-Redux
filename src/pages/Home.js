@@ -1,6 +1,6 @@
 import React from 'react';
 import AddBooks from '../components/add-books';
-import BookList from '../components/books-list';
+import BookList, { DisplayBooks } from '../components/books-list';
 
 class Home extends React.Component {
   render() {
@@ -12,5 +12,7 @@ class Home extends React.Component {
     );
   }
 }
+
+window.addEventListener('DOMContentLoaded', DisplayBooks);
 
 export default Home;
