@@ -9,7 +9,6 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_BOOK:
       return {
-        
       };
     case REMOVE_BOOK:
       /*
