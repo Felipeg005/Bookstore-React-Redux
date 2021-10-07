@@ -2,7 +2,7 @@
 const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 
-const initialState = [];
+const initialState = JSON.parse(localStorage.getItem('bookStorage'));
 
 // Reducer
 const reducer = (state = initialState, action) => {
@@ -33,10 +33,15 @@ const reducer = (state = initialState, action) => {
     */
     case REMOVE_BOOK: {
       storageState();
-      console.log(state);
-      const newState = [...state, state.filter((book) => book !== action.payload)];
-      console.log(state);
-      // localStorage.setItem('bookStorage', JSON.stringify(state));
+      // console.log(state.filter((book) => {
+      //   return book.id !== Number(action.payload.bookId);
+      // }));
+      const newState = state.filter((book) => book.id !== Number(action.payload.bookId));
+      for (let i = 0; i < newState.length; i += 1) {
+        newState[i].id = i + 1;
+      }
+      console.log(newState);
+      localStorage.setItem('bookStorage', JSON.stringify(newState));
       return newState;
     }
     /*

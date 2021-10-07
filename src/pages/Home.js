@@ -17,11 +17,11 @@ class Home extends React.Component {
 
 // window.addEventListener('DOMContentLoaded', DisplayBooks);
 
-window.addEventListener('click', (e) => {
-  if (e.target.className === 'delete-button') {
-    console.log(e.target.id);
-    RemoveBook(e.target.id);
-  }
-});
+// window.addEventListener('click', (e) => {
+//   if (e.target.className === 'delete-button') {
+//     console.log(e.target.id);
+//     RemoveBook(e.target.id);
+//   }
+// });
 
 export default Home;
