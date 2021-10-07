@@ -6,14 +6,17 @@ import { addBook } from '../redux/books/books';
 const AddBooks = () => {
   const dispatch = useDispatch();
   const submitBookToStore = (e) => {
+    e.preventDefault()
     let bookStorage = JSON.parse(localStorage.getItem('bookStorage'));
     if (!bookStorage) {
       bookStorage = [];
     }
     const newBook = {
+      item_id: bookStorage.length + 1,
       id: bookStorage.length + 1,
       title: e.target[0].value,
       author: e.target[1].value,
+      category: 'fiction',
     };
     // dispatch an action and pass it the newBook object (your action's payload)
     dispatch(addBook(newBook));

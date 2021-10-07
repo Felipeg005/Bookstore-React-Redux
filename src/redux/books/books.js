@@ -38,11 +38,11 @@ const reducer = (state = initialState, action) => {
       window.location.reload();
       return newState;
     }
-   case GET_BOOKS: {
-      // state = response.json();
-      console.log(state);
-      return state;
-   }
+    case GET_BOOKS: {
+      return (
+        action.state
+      );
+    }
     default:
       return state;
   }
@@ -52,32 +52,34 @@ export default reducer;
 
 // Action Creators
 
-export const GetBooks = (payload) => (dispatch) => {
-  const response = fetch(URL, {
-    method: 'GET',
+export const GetBooks = () => async (dispatch) => {
+  const response = await fetch(URL);
+  const booksApi = await response.json();
+  console.log(booksApi);
+  const keys = Object.keys(booksApi);
+  const state = [];
+  keys.forEach((key) => {
+    state.push({ ...booksApi[key][0], item_id: key });
   });
-  console.log(response.text());
-  console.log(response.json());
-
+  console.log(state);
+  localStorage.setItem('bookStorage', JSON.stringify(state));
   dispatch({
     type: GET_BOOKS,
-    payload
+    state,
   });
-
-  return response.text();
 };
 
 export const addBook = (payload) => async (dispatch) => {
+  console.log(payload);
   const response = await fetch(URL, {
     method: 'POST',
-    body: new URLSearchParams({
-      item_id: payload.id,
-      title: payload.title,
-      author: payload.author,
-      category: 'fiction',
-    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
   });
   console.log(response.text());
+  console.log(payload);
 
   dispatch({
     type: ADD_BOOK,
