@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { useDispatch } from 'react-redux';
 import React from 'react';
 import { addBook } from '../redux/books/books';
@@ -8,7 +7,7 @@ const AddBooks = () => {
   const submitBookToStore = (e) => {
     e.preventDefault();
     let bookStorage = JSON.parse(localStorage.getItem('bookStorage'));
-    if(!bookStorage) {
+    if (!bookStorage) {
       bookStorage = [];
     }
     const newBook = {
@@ -18,7 +17,7 @@ const AddBooks = () => {
     };
     // dispatch an action and pass it the newBook object (your action's payload)
     dispatch(addBook(newBook));
-  }
+  };
   return (
     <>
     <h2 className="form-title">Add New</h2>
@@ -29,6 +28,6 @@ const AddBooks = () => {
     </form>
     </>
   );
-}
+};
 
 export default AddBooks;
