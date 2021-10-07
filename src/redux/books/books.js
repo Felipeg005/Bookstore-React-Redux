@@ -4,6 +4,7 @@ const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 const GET_BOOKS = 'bookStore/books/GET_BOOKS';
 
 const initialState = JSON.parse(localStorage.getItem('bookStorage'));
+const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/4dkScpJEBinEhk7DfZib/books';
 
 // Reducer
 const reducer = (state = initialState, action) => {
@@ -26,12 +27,7 @@ const reducer = (state = initialState, action) => {
         newState
       );
     }
-    /*
-    return a new state object in which the books array will contain a new book object,
-    passed by action.payload.
-    Remember -  you MUSN'T mutate the state. You have to return a new state object - i.e.:
-    return [ ...state, action.payload];
-    */
+
     case REMOVE_BOOK: {
       storageState();
       const newState = state.filter((book) => book.id !== Number(action.payload.bookId));
@@ -41,13 +37,8 @@ const reducer = (state = initialState, action) => {
       localStorage.setItem('bookStorage', JSON.stringify(newState));
       return newState;
     }
-    /*
-    use ES6 filter() method to create a new array, which will not contain the book you
-    want to remove from the store (filter by the id key - i.e.:
-    return state.filter(book => book.id !== id);
-    */
    case GET_BOOKS: {
-      state = await GetBooks();
+      // state = response.json();
       console.log(state);
       return state;
    }
@@ -60,21 +51,22 @@ export default reducer;
 
 // Action Creators
 
-const GetBooks = (payload) => async (dispatch) => {
-  const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/4dkScpJEBinEhk7DfZib/books';
-  const response = await fetch(URL, {
+export const GetBooks = (payload) => (dispatch) => {
+  const response = fetch(URL, {
     method: 'GET',
   });
   console.log(response.text());
+  console.log(response.json());
 
-  // dispatch({
-  //   type: ADD_BOOK,
-  //   payload,
-  // });
+  dispatch({
+    type: GET_BOOKS,
+    payload
+  });
+
+  return response.text();
 };
 
 export const addBook = (payload) => async (dispatch) => {
-  const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/4dkScpJEBinEhk7DfZib/books';
   const response = await fetch(URL, {
     method: 'POST',
     body: new URLSearchParams({
