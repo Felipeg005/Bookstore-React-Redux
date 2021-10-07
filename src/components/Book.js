@@ -16,7 +16,7 @@ const NewBook = (props) => {
   return (
     <li id={bookId} className={bookClassName}>
       <h2 className="books-title">{bookTitle}</h2>
-      <h3 className="books-title">{bookAuthor}</h3>
+      <h3 className="books-author">{bookAuthor}</h3>
       <button id={bookId} className="delete-button" onClick={removeBook}>Delete</button>
     </li>
   );

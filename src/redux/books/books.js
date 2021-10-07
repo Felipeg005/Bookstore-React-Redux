@@ -35,6 +35,7 @@ const reducer = (state = initialState, action) => {
         newState[i].id = i + 1;
       }
       localStorage.setItem('bookStorage', JSON.stringify(newState));
+      window.location.reload();
       return newState;
     }
    case GET_BOOKS: {
