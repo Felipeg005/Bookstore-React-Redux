@@ -5,7 +5,6 @@ import { addBook } from '../redux/books/books';
 const AddBooks = () => {
   const dispatch = useDispatch();
   const submitBookToStore = (e) => {
-    e.preventDefault();
     let bookStorage = JSON.parse(localStorage.getItem('bookStorage'));
     if (!bookStorage) {
       bookStorage = [];
