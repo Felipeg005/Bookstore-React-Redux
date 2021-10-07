@@ -1,6 +1,7 @@
 // Actions
 const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
+const GET_BOOKS = 'bookStore/books/GET_BOOKS';
 
 const initialState = JSON.parse(localStorage.getItem('bookStorage'));
 
@@ -45,6 +46,11 @@ const reducer = (state = initialState, action) => {
     want to remove from the store (filter by the id key - i.e.:
     return state.filter(book => book.id !== id);
     */
+   case GET_BOOKS: {
+      state = await GetBooks();
+      console.log(state);
+      return state;
+   }
     default:
       return state;
   }
@@ -54,10 +60,37 @@ export default reducer;
 
 // Action Creators
 
-export const addBook = (payload) => ({
-  type: ADD_BOOK,
-  payload,
-});
+const GetBooks = (payload) => async (dispatch) => {
+  const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/4dkScpJEBinEhk7DfZib/books';
+  const response = await fetch(URL, {
+    method: 'GET',
+  });
+  console.log(response.text());
+
+  // dispatch({
+  //   type: ADD_BOOK,
+  //   payload,
+  // });
+};
+
+export const addBook = (payload) => async (dispatch) => {
+  const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/4dkScpJEBinEhk7DfZib/books';
+  const response = await fetch(URL, {
+    method: 'POST',
+    body: new URLSearchParams({
+      item_id: payload.id,
+      title: payload.title,
+      author: payload.author,
+      category: 'fiction',
+    }),
+  });
+  console.log(response.text());
+
+  dispatch({
+    type: ADD_BOOK,
+    payload,
+  });
+};
 
 export const removeBooks = (payload) => ({
   type: REMOVE_BOOK,

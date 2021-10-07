@@ -1,3 +1,4 @@
+/* eslint-disable*/
 import { useDispatch } from 'react-redux';
 import React from 'react';
 import { addBook } from '../redux/books/books';
@@ -5,8 +6,8 @@ import { addBook } from '../redux/books/books';
 const AddBooks = () => {
   const dispatch = useDispatch();
   const submitBookToStore = (e) => {
-    e.preventDefault();
-    let bookStorage = JSON.parse(localStorage.getItem('bookStorage'));
+  e.preventDefault();
+  let bookStorage = JSON.parse(localStorage.getItem('bookStorage')); 
     if (!bookStorage) {
       bookStorage = [];
     }
