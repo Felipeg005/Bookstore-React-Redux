@@ -80,3 +80,8 @@ a {
 .delete-button {
   margin-left: auto;
 }
+
+.books-author {
+  color: rgb(75, 75, 196);
+  margin-left: 15px;
+}
