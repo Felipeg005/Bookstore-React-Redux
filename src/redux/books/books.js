@@ -33,14 +33,10 @@ const reducer = (state = initialState, action) => {
     */
     case REMOVE_BOOK: {
       storageState();
-      // console.log(state.filter((book) => {
-      //   return book.id !== Number(action.payload.bookId);
-      // }));
       const newState = state.filter((book) => book.id !== Number(action.payload.bookId));
       for (let i = 0; i < newState.length; i += 1) {
         newState[i].id = i + 1;
       }
-      console.log(newState);
       localStorage.setItem('bookStorage', JSON.stringify(newState));
       return newState;
     }
@@ -49,7 +45,6 @@ const reducer = (state = initialState, action) => {
     want to remove from the store (filter by the id key - i.e.:
     return state.filter(book => book.id !== id);
     */
-
     default:
       return state;
   }

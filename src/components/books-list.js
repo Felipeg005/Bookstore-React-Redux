@@ -8,7 +8,6 @@ const BookList = () => {
   }
 
   const giveLiClass = (id) => {
-    console.log(id);
     if (id % 2 === 0) {
       return 'book-container';
     }
