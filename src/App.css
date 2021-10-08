@@ -5,7 +5,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #fafafa;
+  background-color: #f7f7f7;
+  overflow-x: hidden;
 }
 
 li {
@@ -17,12 +18,15 @@ a {
 }
 
 .nav-menu {
-  padding: 50px 0;
+  padding: 40px 0 30px 0;
   margin: -20px 0 0 0;
   width: 100vw;
   display: flex;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  background-color: white;
+  border: 2px solid rgb(230, 226, 226);
 }
 
 .menu-container {
@@ -45,10 +49,13 @@ a {
 
 .list-container {
   width: 80vw;
+  margin-top: 30px;
   margin-left: 10%;
   height: 50vh;
   overflow-y: scroll;
-  background-color: #fafafa;
+  overflow-x: hide;
+  background-color: #f7f7f7;
+  padding: 0 10px;
 }
 
 .list-elements {
@@ -57,11 +64,49 @@ a {
 }
 
 .form {
-  margin-left: 40%;
+  margin: 50px 11% 0 11%;
+}
+
+.title-input {
+  width: 60%;
+  margin-right: 40px;
+  padding: 10px 0 10px 10px;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  background-color: white;
+}
+
+.title-input::placeholder {
+  color: rgb(197, 197, 197);
+}
+
+.categories-input,
+.categories-input:active,
+.categories-input:hover {
+  padding: 10px 50px 10px 50px;
+  font-family: 'Montserrat', sans-serif;
+  border: transparent;
+  background-color: white;
+  color: rgb(197, 197, 197);
+  outline: transparent;
+}
+
+.submit-button {
+  background-color: #0290ff;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-family: 'Roboto Slab', serif;
+  color: white;
+  margin-left: 5%;
+  cursor: pointer;
 }
 
 .form-title {
-  text-align: center;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  border-top: 1px solid rgb(236, 236, 236);
+  margin: 40px 11% 0 11%;
 }
 
 .book-container {
@@ -72,6 +117,11 @@ a {
   align-items: center;
   justify-content: space-between;
   background-color: white;
+  border-radius: 2px;
+}
+
+.book-container:hover {
+  border: 1px solid #4386bf;
 }
 
 .delete-button {
@@ -161,4 +211,5 @@ a {
   font-family: 'Roboto Slab', serif;
   color: white;
   margin-top: 15px;
+  cursor: pointer;
 }

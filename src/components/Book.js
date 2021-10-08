@@ -28,7 +28,7 @@ const NewBook = (props) => {
       <img src={progressImg} alt="Book-progress" className="progress-img"></img>
         <div>
         <p className="progress-percent">{Math.floor(Math.random() * 100) + 1 }%</p>
-        <p className="progress-completed">Progress</p>
+        <p className="progress-completed">Completed</p>
         </div>
       </div>
       <div className="current-chapter-container">
