@@ -1,29 +1,27 @@
-import React from 'react';
+import { React, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import NewBook from './Book';
+import { GetBooks } from '../redux/books/books';
 
 const BookList = () => {
-  let bookStorage = JSON.parse(localStorage.getItem('bookStorage'));
-  if (!bookStorage) {
-    bookStorage = [];
-  }
+  const dispatch = useDispatch();
 
-  const giveLiClass = (id) => {
-    if (id % 2 === 0) {
-      return 'book-container';
-    }
-    return 'book-container-white';
-  };
+  useEffect(() => {
+    dispatch(GetBooks());
+  }, []);
+
+  const bookStorage = useSelector((state) => state);
 
   return (
     <div className="list-container">
     <ul className="list-elements">
-    {bookStorage.map((book) => (
+    {bookStorage.booksReducer.map((book) => (
       <NewBook
-        key={book.id}
-        bookId={book.id}
+        key={book.item_id}
+        bookId={book.item_id}
         bookTitle={book.title}
-        bookAuthor={book.author}
-        bookClassName={giveLiClass(book.id)}
+        category={book.category}
+        bookClassName='book-container'
       />
     ))}
     </ul>

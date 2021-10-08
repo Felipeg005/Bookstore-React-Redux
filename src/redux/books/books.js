@@ -1,51 +1,28 @@
 // Actions
 const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
+const GET_BOOKS = 'bookStore/books/GET_BOOKS';
 
-const initialState = JSON.parse(localStorage.getItem('bookStorage'));
-
+const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/4dkScpJEBinEhk7DfZib/books';
+const initialState = [];
 // Reducer
 const reducer = (state = initialState, action) => {
-  const storageState = () => {
-    if (JSON.parse(localStorage.getItem('bookStorage'))) {
-      state = JSON.parse(localStorage.getItem('bookStorage'));
-      localStorage.setItem('bookStorage', JSON.stringify(state));
-    } else {
-      state = [];
-    }
-    return state;
-  };
-
   switch (action.type) {
     case ADD_BOOK: {
-      storageState();
       const newState = [...state, action.payload];
-      localStorage.setItem('bookStorage', JSON.stringify(newState));
       return (
         newState
       );
     }
-    /*
-    return a new state object in which the books array will contain a new book object,
-    passed by action.payload.
-    Remember -  you MUSN'T mutate the state. You have to return a new state object - i.e.:
-    return [ ...state, action.payload];
-    */
+
     case REMOVE_BOOK: {
-      storageState();
-      const newState = state.filter((book) => book.id !== Number(action.payload.bookId));
-      for (let i = 0; i < newState.length; i += 1) {
-        newState[i].id = i + 1;
-      }
-      localStorage.setItem('bookStorage', JSON.stringify(newState));
+      const newState = state.filter((book) => book.id !== Number(action.payload.item_id));
       window.location.reload();
       return newState;
     }
-    /*
-    use ES6 filter() method to create a new array, which will not contain the book you
-    want to remove from the store (filter by the id key - i.e.:
-    return state.filter(book => book.id !== id);
-    */
+    case GET_BOOKS: {
+      return action.state;
+    }
     default:
       return state;
   }
@@ -55,12 +32,37 @@ export default reducer;
 
 // Action Creators
 
-export const addBook = (payload) => ({
-  type: ADD_BOOK,
-  payload,
-});
+export const GetBooks = () => async (dispatch) => {
+  const response = await fetch(URL);
+  const booksApi = await response.json();
+  const keys = Object.keys(booksApi);
+  const state = [];
+  keys.forEach((key) => {
+    state.push({ ...booksApi[key][0], item_id: key });
+  });
+  dispatch({
+    type: GET_BOOKS,
+    state,
+  });
+};
 
-export const removeBooks = (payload) => ({
-  type: REMOVE_BOOK,
-  payload,
-});
+export const addBook = (payload) => async (dispatch) => {
+  await fetch(URL, {
+    method: 'POST',
+    body: new URLSearchParams(payload),
+  });
+  dispatch({
+    type: ADD_BOOK,
+    payload,
+  });
+};
+
+export const removeBooks = (payload) => async (dispatch) => {
+  await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/4dkScpJEBinEhk7DfZib/books/${payload.item_id}`, {
+    method: 'DELETE',
+  });
+  dispatch({
+    type: REMOVE_BOOK,
+    payload,
+  });
+};

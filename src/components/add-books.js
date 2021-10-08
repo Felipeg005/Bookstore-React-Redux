@@ -1,3 +1,4 @@
+import { uuid } from 'uuidv4';
 import { useDispatch } from 'react-redux';
 import React from 'react';
 import { addBook } from '../redux/books/books';
@@ -10,11 +11,10 @@ const AddBooks = () => {
       bookStorage = [];
     }
     const newBook = {
-      id: bookStorage.length + 1,
+      item_id: uuid(),
       title: e.target[0].value,
-      author: e.target[1].value,
+      category: e.target[1].value,
     };
-    // dispatch an action and pass it the newBook object (your action's payload)
     dispatch(addBook(newBook));
   };
   return (
@@ -22,7 +22,14 @@ const AddBooks = () => {
     <h2 className="form-title">Add New</h2>
     <form className="form" onSubmit={submitBookToStore}>
       <input type="text" required maxLength="30" placeholder="Title"></input>
-      <input type="text" required maxLength="30" placeholder="Author"></input>
+      <label for="Categories">Category</label>
+      <select name='Categories'>
+        <option value='Action'>Action</option>
+        <option value='Drama'>Drama</option>
+        <option value='Thriller'>Thriller</option>
+        <option value='Terror'>Terror</option>
+        <option value='Psy-Fy'>Psy-Fy</option>
+      </select>
       <button type="submit">Submit</button>
     </form>
     </>

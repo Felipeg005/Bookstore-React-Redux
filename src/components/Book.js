@@ -3,12 +3,12 @@ import { removeBooks } from '../redux/books/books';
 
 const NewBook = (props) => {
   const {
-    bookId, bookTitle, bookAuthor, bookClassName,
+    bookId, bookTitle, category, bookClassName,
   } = props;
   const dispatch = useDispatch();
   const removeBook = (e) => {
     const removeThisBook = {
-      bookId: e.target.id,
+      item_id: e.target.id,
     };
     dispatch(removeBooks(removeThisBook));
   };
@@ -16,7 +16,7 @@ const NewBook = (props) => {
   return (
     <li id={bookId} className={bookClassName}>
       <h2 className="books-title">{bookTitle}</h2>
-      <h3 className="books-author">{bookAuthor}</h3>
+      <h3 className="books-author">{category}</h3>
       <button id={bookId} className="delete-button" onClick={removeBook}>Delete</button>
     </li>
   );
