@@ -53,7 +53,7 @@ a {
   margin-left: 10%;
   height: 50vh;
   overflow-y: scroll;
-  overflow-x: hide;
+  overflow-x: hidden;
   background-color: #f7f7f7;
   padding: 0 10px;
 }
@@ -199,7 +199,7 @@ a {
 .current-chapter {
   font-size: 15px;
   font-weight: normal;
-  color: rgb(189, 188, 188)black;
+  color: black;
   margin: 0;
 }
 
