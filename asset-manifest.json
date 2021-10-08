@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/Bookstore-React-Redux/static/css/main.694136ea.chunk.css",
-    "main.js": "/Bookstore-React-Redux/static/js/main.cec1ede2.chunk.js",
-    "main.js.map": "/Bookstore-React-Redux/static/js/main.cec1ede2.chunk.js.map",
-    "runtime-main.js": "/Bookstore-React-Redux/static/js/runtime-main.eaf78b32.js",
-    "runtime-main.js.map": "/Bookstore-React-Redux/static/js/runtime-main.eaf78b32.js.map",
-    "static/js/2.55864bae.chunk.js": "/Bookstore-React-Redux/static/js/2.55864bae.chunk.js",
-    "static/js/2.55864bae.chunk.js.map": "/Bookstore-React-Redux/static/js/2.55864bae.chunk.js.map",
-    "static/js/3.39cce60c.chunk.js": "/Bookstore-React-Redux/static/js/3.39cce60c.chunk.js",
-    "static/js/3.39cce60c.chunk.js.map": "/Bookstore-React-Redux/static/js/3.39cce60c.chunk.js.map",
+    "main.css": "/Bookstore-React-Redux/static/css/main.495c2225.chunk.css",
+    "main.js": "/Bookstore-React-Redux/static/js/main.26b2cc1f.chunk.js",
+    "main.js.map": "/Bookstore-React-Redux/static/js/main.26b2cc1f.chunk.js.map",
+    "runtime-main.js": "/Bookstore-React-Redux/static/js/runtime-main.97c7f787.js",
+    "runtime-main.js.map": "/Bookstore-React-Redux/static/js/runtime-main.97c7f787.js.map",
+    "static/js/2.8da26069.chunk.js": "/Bookstore-React-Redux/static/js/2.8da26069.chunk.js",
+    "static/js/2.8da26069.chunk.js.map": "/Bookstore-React-Redux/static/js/2.8da26069.chunk.js.map",
+    "static/js/3.40e3f7aa.chunk.js": "/Bookstore-React-Redux/static/js/3.40e3f7aa.chunk.js",
+    "static/js/3.40e3f7aa.chunk.js.map": "/Bookstore-React-Redux/static/js/3.40e3f7aa.chunk.js.map",
     "index.html": "/Bookstore-React-Redux/index.html",
-    "static/css/main.694136ea.chunk.css.map": "/Bookstore-React-Redux/static/css/main.694136ea.chunk.css.map",
-    "static/js/2.55864bae.chunk.js.LICENSE.txt": "/Bookstore-React-Redux/static/js/2.55864bae.chunk.js.LICENSE.txt"
+    "static/css/main.495c2225.chunk.css.map": "/Bookstore-React-Redux/static/css/main.495c2225.chunk.css.map",
+    "static/js/2.8da26069.chunk.js.LICENSE.txt": "/Bookstore-React-Redux/static/js/2.8da26069.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.eaf78b32.js",
-    "static/js/2.55864bae.chunk.js",
-    "static/css/main.694136ea.chunk.css",
-    "static/js/main.cec1ede2.chunk.js"
+    "static/js/runtime-main.97c7f787.js",
+    "static/js/2.8da26069.chunk.js",
+    "static/css/main.495c2225.chunk.css",
+    "static/js/main.26b2cc1f.chunk.js"
   ]
 }
