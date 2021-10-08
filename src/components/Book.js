@@ -8,7 +8,7 @@ const NewBook = (props) => {
   const dispatch = useDispatch();
   const removeBook = (e) => {
     const removeThisBook = {
-      bookId: e.target.id,
+      item_id: e.target.id,
     };
     dispatch(removeBooks(removeThisBook));
   };

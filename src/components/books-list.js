@@ -1,26 +1,32 @@
 import { React, useEffect } from 'react';
-import { bindActionCreators } from 'redux';
-import { useDispatch } from 'react-redux';
+// import { bindActionCreators } from 'redux';
+import { useDispatch, useSelector } from 'react-redux';
 import NewBook from './Book';
 import { GetBooks } from '../redux/books/books';
 
 const BookList = () => {
   const dispatch = useDispatch();
-  const loadBooksAction = bindActionCreators(GetBooks, dispatch);
+
+  // const loadBooks = bindActionCreators(GetBooks, dispatch);
 
   useEffect(() => {
-    loadBooksAction();
+    dispatch(GetBooks());
   }, []);
 
-  let bookStorage = JSON.parse(localStorage.getItem('bookStorage'));
-  if (!bookStorage) {
-    bookStorage = [];
-  }
+  // let bookStorage = JSON.parse(localStorage.getItem('bookStorage'));
+  // if (!bookStorage) {
+  //   bookStorage = [];
+  // }
+
+  const bookStorage = useSelector((state) => state);
+  // console.log(bookStorage.booksReducer);
+
+  // dispatch(GetBooks());
 
   return (
     <div className="list-container">
     <ul className="list-elements">
-    {bookStorage.map((book) => (
+    {bookStorage.booksReducer.map((book) => (
       <NewBook
         key={book.item_id}
         bookId={book.item_id}

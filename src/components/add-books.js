@@ -1,4 +1,5 @@
 /* eslint-disable*/
+import { uuid } from 'uuidv4';
 import { useDispatch } from 'react-redux';
 import React from 'react';
 import { addBook } from '../redux/books/books';
@@ -6,20 +7,24 @@ import { addBook } from '../redux/books/books';
 const AddBooks = () => {
   const dispatch = useDispatch();
   const submitBookToStore = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     let bookStorage = JSON.parse(localStorage.getItem('bookStorage'));
     if (!bookStorage) {
       bookStorage = [];
     }
+    console.log('hi3');
+    // const bookStorage = useSelector((state) => state);
     const newBook = {
-      item_id: bookStorage.length + 1,
-      id: bookStorage.length + 1,
+      item_id: uuid(),
+      // id: newBook.item_id,
       title: e.target[0].value,
       author: e.target[1].value,
       category: 'fiction',
     };
     // dispatch an action and pass it the newBook object (your action's payload)
-    dispatch(addBook(newBook));
+    // useEffect(() => {dispatch(addBook(newBook))}, []);
+    dispatch(addBook(newBook))
+    // useEffect(() => {dispatch(addBook(newBook))}, [])
   };
   return (
     <>
