@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200&display=swap');
+
 body {
   margin: 0;
   padding: 0;
+  background-color: #f7f7f7;
+  overflow-x: hidden;
 }
 
 li {
@@ -12,11 +18,15 @@ a {
 }
 
 .nav-menu {
-  padding: 50px 0;
+  padding: 40px 0 30px 0;
   margin: -20px 0 0 0;
   width: 100vw;
   display: flex;
   align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  background-color: white;
+  border: 2px solid rgb(230, 226, 226);
 }
 
 .menu-container {
@@ -31,17 +41,21 @@ a {
 }
 
 .logo {
+  font-family: 'Montserrat', sans-serif;
   color: rgb(0, 132, 255);
   margin: 0 0 0 40px;
   font-size: 35px;
 }
 
 .list-container {
-  border: 1px solid black;
   width: 80vw;
+  margin-top: 30px;
   margin-left: 10%;
   height: 50vh;
   overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: #f7f7f7;
+  padding: 0 10px;
 }
 
 .list-elements {
@@ -50,38 +64,152 @@ a {
 }
 
 .form {
-  margin-left: 40%;
+  margin: 50px 11% 0 11%;
+}
+
+.title-input {
+  width: 60%;
+  margin-right: 40px;
+  padding: 10px 0 10px 10px;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  background-color: white;
+}
+
+.title-input::placeholder {
+  color: rgb(197, 197, 197);
+}
+
+.categories-input,
+.categories-input:active,
+.categories-input:hover {
+  padding: 10px 50px 10px 50px;
+  font-family: 'Montserrat', sans-serif;
+  border: transparent;
+  background-color: white;
+  color: rgb(197, 197, 197);
+  outline: transparent;
+}
+
+.submit-button {
+  background-color: #0290ff;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-family: 'Roboto Slab', serif;
+  color: white;
+  margin-left: 5%;
+  cursor: pointer;
 }
 
 .form-title {
-  text-align: center;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  border-top: 1px solid rgb(236, 236, 236);
+  margin: 40px 11% 0 11%;
 }
 
 .book-container {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  background-color: rgb(196, 209, 233);
-}
-
-.book-container-white {
-  margin: 0;
-  padding: 0;
+  margin: 15px 0;
+  padding: 15px 0;
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
   background-color: white;
+  border-radius: 2px;
+}
+
+.book-container:hover {
+  border: 1px solid #4386bf;
 }
 
 .delete-button {
-  margin-left: auto;
+  margin-left: 10px;
+  color: #4386bf;
+  font-family: 'Roboto Slab', serif;
+  font-weight: normal;
+  font-size: 15px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-left: 1px solid rgb(236, 236, 236);
+}
+
+.books-title {
+  font-family: 'Roboto Slab', serif;
+  margin: -5px 0 0 15px;
+  font-size: 35px;
 }
 
 .books-author {
-  color: rgb(75, 75, 196);
-  margin-left: 15px;
+  color: #4386bf;
+  margin: 5px 0 15px 15px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: normal;
+  font-size: 15px;
+}
+
+.books-category {
+  color: gray;
+  margin: 0 0 0 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+}
+
+.progress-img {
+  width: 90px;
+  height: 80px;
+}
+
+.progress-container {
+  display: flex;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.progress-percent {
+  font-size: 25px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: bolder;
+  margin: 14px 0 15px 5px;
+}
+
+.progress-completed {
+  font-size: 10px;
+  margin-top: -15px;
+  color: rgb(189, 188, 188);
+  font-weight: lighter;
+}
+
+.current-chapter-container {
+  font-family: 'Roboto Slab', serif;
+  margin-right: 50px;
+  border-left: 2px solid rgb(236, 236, 236);
+  padding-left: 70px;
+}
+
+.current-chapter-title {
+  font-size: 12px;
+  font-weight: normal;
+  color: rgb(189, 188, 188);
+  margin: 0;
+}
+
+.current-chapter {
+  font-size: 15px;
+  font-weight: normal;
+  color: black;
+  margin: 0;
+}
+
+.update-progress-button {
+  background-color: #0290ff;
+  border: none;
+  padding: 5px 30px;
+  border-radius: 5px;
+  font-family: 'Roboto Slab', serif;
+  color: white;
+  margin-top: 15px;
+  cursor: pointer;
 }
