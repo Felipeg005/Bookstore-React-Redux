@@ -1,5 +1,4 @@
 import { React, useEffect } from 'react';
-// import { bindActionCreators } from 'redux';
 import { useDispatch, useSelector } from 'react-redux';
 import NewBook from './Book';
 import { GetBooks } from '../redux/books/books';
@@ -7,21 +6,11 @@ import { GetBooks } from '../redux/books/books';
 const BookList = () => {
   const dispatch = useDispatch();
 
-  // const loadBooks = bindActionCreators(GetBooks, dispatch);
-
   useEffect(() => {
     dispatch(GetBooks());
   }, []);
 
-  // let bookStorage = JSON.parse(localStorage.getItem('bookStorage'));
-  // if (!bookStorage) {
-  //   bookStorage = [];
-  // }
-
   const bookStorage = useSelector((state) => state);
-  // console.log(bookStorage.booksReducer);
-
-  // dispatch(GetBooks());
 
   return (
     <div className="list-container">
@@ -31,7 +20,7 @@ const BookList = () => {
         key={book.item_id}
         bookId={book.item_id}
         bookTitle={book.title}
-        bookAuthor={book.author}
+        category={book.category}
         bookClassName='book-container'
       />
     ))}
