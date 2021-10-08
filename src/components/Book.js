@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { removeBooks } from '../redux/books/books';
+import progressImg from '../Img/Progress-img.png';
 
 const NewBook = (props) => {
   const {
@@ -15,9 +16,26 @@ const NewBook = (props) => {
 
   return (
     <li id={bookId} className={bookClassName}>
+      <div className="book-info-container">
+      <h3 className="books-category">{category}</h3>
       <h2 className="books-title">{bookTitle}</h2>
-      <h3 className="books-author">{category}</h3>
-      <button id={bookId} className="delete-button" onClick={removeBook}>Delete</button>
+      <h3 className="books-author">Lorem Ipsum</h3>
+      <button id={bookId} className="delete-button">Comments</button>
+      <button id={bookId} className="delete-button" onClick={removeBook}>Remove</button>
+      <button id={bookId} className="delete-button">Edit</button>
+      </div>
+      <div className="progress-container">
+      <img src={progressImg} alt="Book-progress" className="progress-img"></img>
+        <div>
+        <p className="progress-percent">{Math.floor(Math.random() * 100) + 1 }%</p>
+        <p className="progress-completed">Progress</p>
+        </div>
+      </div>
+      <div className="current-chapter-container">
+        <p className="current-chapter-title">Current Chapter</p>
+        <p className="current-chapter">Lorem ipsum</p>
+        <button className="update-progress-button">Update progress</button>
+      </div>
     </li>
   );
 };
