@@ -64,10 +64,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
-
-- Thanks to Microverse for making it possible!
-
 ## 📝 License
 
 This project is [MIT](./MIT.md) licensed.
